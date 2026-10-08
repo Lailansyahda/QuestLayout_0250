@@ -7,8 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun ActivitasPertama(modifier: Modifier) {
@@ -18,22 +20,31 @@ fun ActivitasPertama(modifier: Modifier) {
     horizontalAlignmnet = Alignment.CenterHorizontally
     ) {
         Text(
-            stringResource(id=R.string.prodi),
+            stringResource(R.string.prodi),
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold
         )
         Text(
-            stringResource(id=R.string.univ),\
+            stringResource(R.string.univ),\
             fontSize = 22.sp
         )
         Spacer(modifier = Modifier.height(25.dp))
         Card(
             modifier = Modifier
                 .fillMaxWidth( fraction=1f)
-                .padding( all = 12.dp),
+                .padding(12.dp),
             colors = CardDefaults.cardColors(
                 containerColor = colorResource(R.color.card_0_bg)
             )
-        )
+        ){
+            Row() {
+                val gambar = painterResource(R.drawable.logo_umy)
+                Image(
+                    painter = gambar,
+                    contentDescription = null,
+                    modifier = Modifier.size(100.dp).padding(5.dp)
+                )
+            }
+        }
     }
 }
